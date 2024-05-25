@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.Pmf" parent="Base.Theme.Pmf" />
+    <style name="splashscreentheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowBackground">@color/back</item>
+    </style>
+
 </resources>

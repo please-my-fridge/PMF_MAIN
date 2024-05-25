@@ -122,7 +122,7 @@
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:text="감자"
-					android:textAppearance=" "
+					android:textAppearance="@android:style/TextAppearance"
 					android:textColor="#3C2F2F"
 					android:textSize="18sp" />
 			</LinearLayout>
