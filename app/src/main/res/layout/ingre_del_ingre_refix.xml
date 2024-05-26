@@ -7,9 +7,9 @@
 	android:clipToPadding="false"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
-	tools:context=".MainActivity"
+	tools:context=".SSubActivity"
 	android:layout_height="match_parent">
-	<ScrollView 
+	<ScrollView
 		android:id="@+id/rhqn1ypml0fa"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
@@ -38,7 +38,7 @@
 				android:text="P.M.F"
 			/>
 			<LinearLayout
-				android:id="@+id/r5ymk0g6xp1q"
+				android:id="@+id/result_container"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:gravity="center_vertical"
@@ -53,14 +53,13 @@
 					android:background="@drawable/cr15bffd4e8eb"
 					android:paddingVertical="7dp"
 					android:layout_marginEnd="14dp"
-					android:clickable="true"
 					android:orientation="vertical">
 					<Button
 						android:id="@+id/rpxbo16vivdm"
 						android:textColor="#000000"
 						android:textSize="18sp"
 						android:textStyle="bold"
-						android:background="#"
+						android:background="@android:color/transparent"
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
 						android:text="등록"
@@ -81,7 +80,7 @@
 						android:textColor="#000000"
 						android:textSize="18sp"
 						android:textStyle="bold"
-						android:background="#"
+						android:background="@android:color/transparent"
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
 						android:text="검색"
@@ -101,7 +100,7 @@
 						android:textColor="#ff0000"
 						android:textSize="18sp"
 						android:textStyle="bold"
-						android:background="#"
+						android:background="@android:color/transparent"
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
 						android:text="수정/삭제"
@@ -131,6 +130,11 @@
 					android:layout_weight="1"
 				/>
 			</LinearLayout>
+			<ListView
+				android:id="@+id/resultListView"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="20dp" />
 			<RelativeLayout
 				android:id="@+id/ro03w51oirg"
 				android:layout_width="match_parent"

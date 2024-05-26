@@ -127,15 +127,8 @@
 					android:layout_height="wrap_content"
 					android:layout_width="match_parent"
 					android:layout_weight="1"
-<<<<<<< HEAD:app/src/main/res/layout/activity_ingre_resis.xml
-					android:text="감자"
-					android:textAppearance="@android:style/TextAppearance"
-					android:textColor="#3C2F2F"
-					android:textSize="18sp" />
-=======
 					android:text="양파"
 				/>
->>>>>>> 29d45945d745c4b1feb86c2c87a51374081b54cb:app/src/main/res/layout/ingre_find_pop_up.xml
 			</LinearLayout>
 			<LinearLayout
 				android:id="@+id/rs1mjrwofbb8"
