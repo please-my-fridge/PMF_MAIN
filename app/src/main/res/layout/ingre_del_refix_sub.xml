@@ -5,19 +5,19 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/nameTextView"
+    <EditText
+        android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ingredient Name"
-        android:textSize="18sp"
+        android:hint="재료 이름"
+        android:inputType="text"
         android:padding="8dp" />
 
     <EditText
         android:id="@+id/numEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter quantity"
+        android:hint="수량을 입력해주세요"
         android:inputType="number"
         android:padding="8dp" />
 
