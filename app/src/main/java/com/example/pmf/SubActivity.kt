@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class SubActivity : AppCompatActivity() {
 
-    private lateinit var nameTextView: TextView
+    private lateinit var nameEditText: EditText
     private lateinit var numEditText: EditText
     private lateinit var saveButton: Button
     private lateinit var dbHelper: DBHelper
@@ -18,7 +18,7 @@ class SubActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ingre_del_refix_sub)
 
-        nameTextView = findViewById(R.id.nameTextView)
+        nameEditText = findViewById(R.id.nameEditText)
         numEditText = findViewById(R.id.numEditText)
         saveButton = findViewById(R.id.saveButton)
         dbHelper = DBHelper(this)
@@ -26,7 +26,7 @@ class SubActivity : AppCompatActivity() {
         val name = intent.getStringExtra("name")
         val num = intent.getIntExtra("num", 0)
 
-        nameTextView.text = name
+        nameEditText.setText(name.toString())
         numEditText.setText(num.toString())
 
         saveButton.setOnClickListener {

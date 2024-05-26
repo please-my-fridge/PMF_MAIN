@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:hint="재료 이름"
         android:inputType="text"
-        android:padding="8dp" />
+        android:padding="16dp" />
 
     <EditText
         android:id="@+id/numEditText"
@@ -19,12 +19,12 @@
         android:layout_height="wrap_content"
         android:hint="수량을 입력해주세요"
         android:inputType="number"
-        android:padding="8dp" />
+        android:padding="16dp" />
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="등록"
-        android:padding="8dp" />
+        android:padding="16dp"
+        android:text="등록" />
 </LinearLayout>
