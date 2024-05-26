@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RecipeFindActivity">
+
+    <!-- 검색창 -->
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="검색어를 입력하세요"
+        android:padding="8dp"
+        android:background="@drawable/search_bar_bg"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"/>
+
+    <!-- 보유중인 재료로 추천받기 버튼 -->
+    <Button
+        android:id="@+id/recommend_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보유중인 재료로 추천 받으러 가기"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_rectangle"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@android:color/black"/>
+
+    <!-- 최근 검색어 -->
+    <LinearLayout
+        android:id="@+id/recent_search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded_rectangle">
+
+        <!-- 최근 검색어 제목 -->
+        <TextView
+            android:id="@+id/recent_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최근 검색어"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <!-- 최근 검색어 목록 -->
+        <LinearLayout
+            android:id="@+id/recent_search_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- 최근 검색어 아이템이 동적으로 추가될 예정 -->
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Include Nav Bar -->
+    <include
+        android:id="@+id/include_nav_bar"
+        layout="@layout/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+</LinearLayout>
