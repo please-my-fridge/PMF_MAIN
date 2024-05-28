@@ -2,6 +2,7 @@ package com.example.pmf
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -10,9 +11,9 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     companion object {
         private const val DATABASE_NAME = "ingredients.db"
         private const val DATABASE_VERSION = 1
-        private const val TABLE_NAME = "ingre"
-        private const val COLUMN_NAME = "name"
-        private const val COLUMN_NUM = "num"
+        const val TABLE_NAME = "ingre"
+        const val COLUMN_NAME = "name"
+        const val COLUMN_NUM = "num"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -52,10 +53,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     fun getItem(name: String): Pair<String, Int>? {
         val db = this.readableDatabase
-        val cursor = db.query(
-            TABLE_NAME, arrayOf(COLUMN_NAME, COLUMN_NUM), "$COLUMN_NAME = ?",
-            arrayOf(name), null, null, null
-        )
+        val cursor = db.query(TABLE_NAME, arrayOf(COLUMN_NAME, COLUMN_NUM), "$COLUMN_NAME = ?", arrayOf(name), null, null, null)
         cursor?.moveToFirst()
         val item = if (cursor.count > 0) {
             Pair(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME)), cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_NUM)))
@@ -97,5 +95,14 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         cursor.close()
         db.close()
         return itemList
+    }
+
+    fun searchItemsCursor(query: String): Cursor {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT _rowid_ AS _id, $COLUMN_NAME, $COLUMN_NUM FROM $TABLE_NAME WHERE $COLUMN_NAME LIKE ?", arrayOf("%$query%"))
+    }
+    fun getAllIngredientsCursor(): Cursor {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT _rowid_ AS _id, $COLUMN_NAME, $COLUMN_NUM FROM $TABLE_NAME", null)
     }
 }

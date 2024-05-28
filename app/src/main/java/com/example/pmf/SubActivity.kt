@@ -3,7 +3,6 @@ package com.example.pmf
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -16,24 +15,28 @@ class SubActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.ingre_del_refix_sub)
+        setContentView(R.layout.ingre_resis_sub)
 
-        nameEditText = findViewById(R.id.nameEditText)
-        numEditText = findViewById(R.id.numEditText)
-        saveButton = findViewById(R.id.saveButton)
+        nameEditText = findViewById(R.id.ingredientNameAutoComplete)
+        numEditText = findViewById(R.id.ingredientQuantity)
+        saveButton = findViewById(R.id.addIngredientButton)
         dbHelper = DBHelper(this)
 
         val name = intent.getStringExtra("name")
         val num = intent.getIntExtra("num", 0)
 
-        nameEditText.setText(name.toString())
+        nameEditText.setText(name)
         numEditText.setText(num.toString())
 
         saveButton.setOnClickListener {
-            val newNum = numEditText.text.toString().toInt()
-            dbHelper.updateItem(name ?: "", newNum)
-            Toast.makeText(this, "Updated successfully", Toast.LENGTH_SHORT).show()
-            finish()
+            try {
+                val newNum = numEditText.text.toString().toInt()
+                dbHelper.updateItem(name ?: "", newNum)
+                Toast.makeText(this, "Updated successfully", Toast.LENGTH_SHORT).show()
+                finish()
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

@@ -9,6 +9,7 @@
 	android:layout_width="match_parent"
 	tools:context=".MainActivity"
 	android:layout_height="match_parent">
+
 	<ScrollView
 		android:id="@+id/rhqn1ypml0fa"
 		android:layout_width="match_parent"
@@ -20,12 +21,14 @@
 		android:clipChildren="false"
 		android:clipToPadding="false"
 		android:fillViewport="true">
+
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:clipChildren="false"
 			android:clipToPadding="false"
 			android:orientation="vertical">
+
 			<TextView
 				android:id="@+id/r0uf8wn5voxog"
 				android:textColor="#3c2f2f"
@@ -35,8 +38,8 @@
 				android:layout_marginStart="16dp"
 				android:layout_height="wrap_content"
 				android:layout_width="wrap_content"
-				android:text="P.M.F"
-				/>
+				android:text="P.M.F"/>
+
 			<LinearLayout
 				android:id="@+id/r5ymk0g6xp1q"
 				android:layout_width="match_parent"
@@ -45,6 +48,7 @@
 				android:layout_marginBottom="8dp"
 				android:layout_marginHorizontal="21dp"
 				android:orientation="horizontal">
+
 				<LinearLayout
 					android:id="@+id/r2q800ck8u5t"
 					android:layout_width="84dp"
@@ -55,6 +59,7 @@
 					android:layout_marginEnd="14dp"
 					android:clickable="true"
 					android:orientation="vertical">
+
 					<Button
 						android:id="@+id/rpxbo16vivdm"
 						android:textColor="#000000"
@@ -63,9 +68,9 @@
 						android:background="@android:color/transparent"
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
-						android:text="등록"
-						/>
+						android:text="등록"/>
 				</LinearLayout>
+
 				<LinearLayout
 					android:id="@+id/rsfr3s7kaon7"
 					android:layout_width="84dp"
@@ -76,6 +81,7 @@
 					android:layout_marginEnd="14dp"
 					android:clickable="true"
 					android:orientation="vertical">
+
 					<Button
 						android:id="@+id/r0gv1z0ieng28"
 						android:textColor="#ff0000"
@@ -84,9 +90,9 @@
 						android:background="@android:color/transparent"
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
-						android:text="검색"
-						/>
+						android:text="검색"/>
 				</LinearLayout>
+
 				<LinearLayout
 					android:id="@+id/rwty62n7ebmj"
 					android:layout_width="123dp"
@@ -96,6 +102,7 @@
 					android:paddingVertical="7dp"
 					android:clickable="true"
 					android:orientation="vertical">
+
 					<Button
 						android:id="@+id/rgfy2p05klkt"
 						android:textColor="#000000"
@@ -104,10 +111,10 @@
 						android:background="@android:color/transparent"
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
-						android:text="수정/삭제"
-						/>
+						android:text="수정/삭제"/>
 				</LinearLayout>
 			</LinearLayout>
+
 			<LinearLayout
 				android:id="@+id/r8w7xj41vm9"
 				android:layout_width="319dp"
@@ -116,7 +123,7 @@
 				android:background="@drawable/cr20bffffffff"
 				android:paddingVertical="19dp"
 				android:paddingHorizontal="21dp"
-				android:layout_marginBottom="633dp"
+				android:layout_marginBottom="20dp"
 				android:layout_marginHorizontal="19dp"
 				android:elevation="19dp"
 				android:orientation="horizontal">
@@ -128,19 +135,23 @@
 					android:textStyle="bold"
 					android:layout_height="wrap_content"
 					android:layout_width="match_parent"
-					android:layout_weight="1"
-					/>
+					android:layout_weight="1"/>
 			</LinearLayout>
+
+			<ListView
+				android:id="@+id/resultListView"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="20dp"/>
+
 			<RelativeLayout
 				android:id="@+id/ro03w51oirg"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:clipChildren="false"
-				android:clipToPadding="false"
-				/>
-
+				android:clipToPadding="false"/>
 		</LinearLayout>
 	</ScrollView>
+
 	<include layout="@layout/nav_bar" android:id="@+id/button1"></include>
 </LinearLayout>
-

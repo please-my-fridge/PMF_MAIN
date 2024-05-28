@@ -3,28 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
-    <EditText
-        android:id="@+id/nameEditText"
+    <AutoCompleteTextView
+        android:id="@+id/ingredientNameAutoComplete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="재료 이름"
         android:inputType="text"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:layout_gravity="center" />
 
     <EditText
-        android:id="@+id/numEditText"
+        android:id="@+id/ingredientQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="수량을 입력해주세요"
         android:inputType="number"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:layout_gravity="center" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/addIngredientButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="등록" />
+        android:text="등록"
+        android:layout_gravity="center" />
 </LinearLayout>

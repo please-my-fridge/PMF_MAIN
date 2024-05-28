@@ -36,7 +36,7 @@
 				android:layout_height="wrap_content"
 				android:layout_width="wrap_content"
 				android:text="P.M.F"
-			/>
+				/>
 			<LinearLayout
 				android:id="@+id/result_container"
 				android:layout_width="match_parent"
@@ -63,7 +63,7 @@
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
 						android:text="등록"
-					/>
+						/>
 				</LinearLayout>
 				<LinearLayout
 					android:id="@+id/rsfr3s7kaon7"
@@ -84,7 +84,7 @@
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
 						android:text="검색"
-					/>
+						/>
 				</LinearLayout>
 				<LinearLayout
 					android:id="@+id/rwty62n7ebmj"
@@ -104,7 +104,7 @@
 						android:layout_height="wrap_content"
 						android:layout_width="wrap_content"
 						android:text="수정/삭제"
-					/>
+						/>
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout
@@ -115,7 +115,7 @@
 				android:background="@drawable/cr20bffffffff"
 				android:paddingVertical="19dp"
 				android:paddingHorizontal="21dp"
-				android:layout_marginBottom="633dp"
+				android:layout_marginBottom="20dp"
 				android:layout_marginHorizontal="19dp"
 				android:elevation="19dp"
 				android:orientation="horizontal">
@@ -128,7 +128,7 @@
 					android:layout_height="wrap_content"
 					android:layout_width="match_parent"
 					android:layout_weight="1"
-				/>
+					/>
 			</LinearLayout>
 			<ListView
 				android:id="@+id/resultListView"
@@ -142,9 +142,7 @@
 				android:clipChildren="false"
 				android:clipToPadding="false"
 				/>
-
 		</LinearLayout>
 	</ScrollView>
 	<include layout="@layout/nav_bar" android:id="@+id/button1"></include>
 </LinearLayout>
-

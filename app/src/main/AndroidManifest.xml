@@ -13,7 +13,28 @@
         android:theme="@style/Theme.Pmf"
         tools:targetApi="31">
 
-        <activity android:name=".ui.splash.splash_screen"
+        <activity android:name=".AddIngredientActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SSubActivity"
+            android:exported="false">
+        </activity>
+        <activity android:name=".SubActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> -->
+
+        <!-- <activity android:name=".ui.splash.splash_screen"
             android:theme="@style/splashscreentheme"
             android:exported="true">
             <intent-filter>
@@ -21,11 +42,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+        </activity> -->
     </application>
 
 </manifest>
