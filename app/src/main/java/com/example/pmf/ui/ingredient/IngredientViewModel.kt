@@ -32,26 +32,34 @@ class IngredientViewModel : ViewModel() {
             "냉동고" -> addIngredientToFreezeStorage(ingredient)
             "실온" -> addIngredientToRoomTemperatureStorage(ingredient)
         }
+        // 여기에 `_ingredientAdded`를 업데이트합니다.
         _ingredientAdded.value = ingredient
     }
 
     fun addIngredientToColdStorage(ingredient: Ingredient) {
         val currentList = _coldStorageIngredients.value?.toMutableList() ?: mutableListOf()
-        currentList.add(ingredient)
-        _coldStorageIngredients.value = currentList
+        if (!currentList.any { it.name == ingredient.name && it.purchaseDate == ingredient.purchaseDate }) {
+            currentList.add(ingredient)
+            _coldStorageIngredients.value = currentList
+        }
     }
 
     fun addIngredientToFreezeStorage(ingredient: Ingredient) {
         val currentList = _freezeStorageIngredients.value?.toMutableList() ?: mutableListOf()
-        currentList.add(ingredient)
-        _freezeStorageIngredients.value = currentList
+        if (!currentList.any { it.name == ingredient.name && it.purchaseDate == ingredient.purchaseDate }) {
+            currentList.add(ingredient)
+            _freezeStorageIngredients.value = currentList
+        }
     }
 
     fun addIngredientToRoomTemperatureStorage(ingredient: Ingredient) {
         val currentList = _roomTemperatureStorageIngredients.value?.toMutableList() ?: mutableListOf()
-        currentList.add(ingredient)
-        _roomTemperatureStorageIngredients.value = currentList
+        if (!currentList.any { it.name == ingredient.name && it.purchaseDate == ingredient.purchaseDate }) {
+            currentList.add(ingredient)
+            _roomTemperatureStorageIngredients.value = currentList
+        }
     }
+
 
     fun updateIngredient(updatedIngredient: Ingredient) {
         when (updatedIngredient.storageLocation) {
@@ -61,7 +69,7 @@ class IngredientViewModel : ViewModel() {
         }
     }
 
-    fun updateIngredients(storage: MutableLiveData<List<Ingredient>>, updatedIngredient: Ingredient) {
+    private fun updateIngredients(storage: MutableLiveData<List<Ingredient>>, updatedIngredient: Ingredient) {
         val currentList = storage.value?.toMutableList() ?: mutableListOf()
         val index = currentList.indexOfFirst { it.name == updatedIngredient.name && it.purchaseDate == updatedIngredient.purchaseDate }
         if (index >= 0) {
@@ -78,7 +86,7 @@ class IngredientViewModel : ViewModel() {
         }
     }
 
-    fun deleteIngredients(storage: MutableLiveData<List<Ingredient>>, ingredient: Ingredient) {
+    private fun deleteIngredients(storage: MutableLiveData<List<Ingredient>>, ingredient: Ingredient) {
         val currentList = storage.value?.toMutableList() ?: mutableListOf()
         currentList.removeAll { it.name == ingredient.name && it.purchaseDate == ingredient.purchaseDate }
         storage.value = currentList
