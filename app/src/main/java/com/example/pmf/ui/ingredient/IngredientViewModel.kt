@@ -32,34 +32,38 @@ class IngredientViewModel : ViewModel() {
             "냉동고" -> addIngredientToFreezeStorage(ingredient)
             "실온" -> addIngredientToRoomTemperatureStorage(ingredient)
         }
-        // 여기에 `_ingredientAdded`를 업데이트합니다.
         _ingredientAdded.value = ingredient
+    }
+
+    fun setColdStorageIngredients(ingredients: List<Ingredient>) {
+        _coldStorageIngredients.value = ingredients
+    }
+
+    fun setFreezeStorageIngredients(ingredients: List<Ingredient>) {
+        _freezeStorageIngredients.value = ingredients
+    }
+
+    fun setRoomTemperatureStorageIngredients(ingredients: List<Ingredient>) {
+        _roomTemperatureStorageIngredients.value = ingredients
     }
 
     fun addIngredientToColdStorage(ingredient: Ingredient) {
         val currentList = _coldStorageIngredients.value?.toMutableList() ?: mutableListOf()
-        if (!currentList.any { it.name == ingredient.name && it.purchaseDate == ingredient.purchaseDate }) {
-            currentList.add(ingredient)
-            _coldStorageIngredients.value = currentList
-        }
+        currentList.add(ingredient)
+        _coldStorageIngredients.value = currentList
     }
 
     fun addIngredientToFreezeStorage(ingredient: Ingredient) {
         val currentList = _freezeStorageIngredients.value?.toMutableList() ?: mutableListOf()
-        if (!currentList.any { it.name == ingredient.name && it.purchaseDate == ingredient.purchaseDate }) {
-            currentList.add(ingredient)
-            _freezeStorageIngredients.value = currentList
-        }
+        currentList.add(ingredient)
+        _freezeStorageIngredients.value = currentList
     }
 
     fun addIngredientToRoomTemperatureStorage(ingredient: Ingredient) {
         val currentList = _roomTemperatureStorageIngredients.value?.toMutableList() ?: mutableListOf()
-        if (!currentList.any { it.name == ingredient.name && it.purchaseDate == ingredient.purchaseDate }) {
-            currentList.add(ingredient)
-            _roomTemperatureStorageIngredients.value = currentList
-        }
+        currentList.add(ingredient)
+        _roomTemperatureStorageIngredients.value = currentList
     }
-
 
     fun updateIngredient(updatedIngredient: Ingredient) {
         when (updatedIngredient.storageLocation) {

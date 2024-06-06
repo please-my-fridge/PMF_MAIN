@@ -35,6 +35,9 @@ class MainFragment : Fragment() {
 
         dbHelper = DBHelper(requireContext())
 
+        // 데이터베이스에서 데이터 로드 및 ViewModel에 설정
+        loadIngredientsFromDatabase()
+
         // 초기 프래그먼트 설정
         setFragment(ColdStorageFragment(), sharedViewModel.coldStorageIngredients.value ?: emptyList())
 
@@ -47,6 +50,16 @@ class MainFragment : Fragment() {
         sharedViewModel.ingredientAdded.observe(viewLifecycleOwner) { ingredient ->
             addIngredientToStorage(ingredient)
         }
+    }
+
+    private fun loadIngredientsFromDatabase() {
+        val coldStorageIngredients = dbHelper.searchItemsByStorageLocation("냉장고")
+        val freezeStorageIngredients = dbHelper.searchItemsByStorageLocation("냉동고")
+        val roomTemperatureStorageIngredients = dbHelper.searchItemsByStorageLocation("실온")
+
+        sharedViewModel.setColdStorageIngredients(coldStorageIngredients)
+        sharedViewModel.setFreezeStorageIngredients(freezeStorageIngredients)
+        sharedViewModel.setRoomTemperatureStorageIngredients(roomTemperatureStorageIngredients)
     }
 
     private fun setFragment(fragment: Fragment, ingredients: List<Ingredient>) {
