@@ -32,8 +32,19 @@ class IngredientViewModel : ViewModel() {
             "냉동고" -> addIngredientToFreezeStorage(ingredient)
             "실온" -> addIngredientToRoomTemperatureStorage(ingredient)
         }
-        // 여기에 `_ingredientAdded`를 업데이트합니다.
         _ingredientAdded.value = ingredient
+    }
+
+    fun setColdStorageIngredients(ingredients: List<Ingredient>) {
+        _coldStorageIngredients.value = ingredients
+    }
+
+    fun setFreezeStorageIngredients(ingredients: List<Ingredient>) {
+        _freezeStorageIngredients.value = ingredients
+    }
+
+    fun setRoomTemperatureStorageIngredients(ingredients: List<Ingredient>) {
+        _roomTemperatureStorageIngredients.value = ingredients
     }
 
     fun addIngredientToColdStorage(ingredient: Ingredient) {

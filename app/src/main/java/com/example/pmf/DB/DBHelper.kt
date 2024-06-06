@@ -42,7 +42,7 @@ data class Ingredient(
     }
 }
 
-class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DBHelper(context: Context) : SQLiteOpenHelper(context.applicationContext, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         private const val DATABASE_NAME = "ingredients.db"
@@ -77,6 +77,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             Ingredient("빵", "2024-01-05", "2024-01-08", "실온"),
             Ingredient("참외", "2024-01-06", "2024-01-30", "실온")
         )
+
 
         initialData.forEach {
             val values = ContentValues().apply {
@@ -191,6 +192,22 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                 val expiryDate = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EXPIRY_DATE))
                 val storageLocation = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STORAGE_LOCATION))
                 itemList.add(Ingredient(name, purchaseDate, expiryDate, storageLocation))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return itemList
+    }
+
+    //레시피 추천 기능을 위한 식재료명 가져오기
+    fun getUserIngredients(): Set<String> {
+        val itemList = mutableSetOf<String>()
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT DISTINCT $COLUMN_NAME FROM $TABLE_NAME", null)
+        if (cursor.moveToFirst()) {
+            do {
+                val name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME))
+                itemList.add(name)
             } while (cursor.moveToNext())
         }
         cursor.close()

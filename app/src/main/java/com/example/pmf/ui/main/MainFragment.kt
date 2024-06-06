@@ -35,6 +35,9 @@ class MainFragment : Fragment() {
 
         dbHelper = DBHelper(requireContext())
 
+        // 데이터베이스에서 데이터 로드 및 ViewModel에 설정
+        loadIngredientsFromDatabase()
+
         // 초기 프래그먼트 설정
         setFragment(ColdStorageFragment(), sharedViewModel.coldStorageIngredients.value ?: emptyList())
 
@@ -47,6 +50,16 @@ class MainFragment : Fragment() {
         sharedViewModel.ingredientAdded.observe(viewLifecycleOwner) { ingredient ->
             addIngredientToStorage(ingredient)
         }
+    }
+
+    private fun loadIngredientsFromDatabase() {
+        val coldStorageIngredients = dbHelper.searchItemsByStorageLocation("냉장고")
+        val freezeStorageIngredients = dbHelper.searchItemsByStorageLocation("냉동고")
+        val roomTemperatureStorageIngredients = dbHelper.searchItemsByStorageLocation("실온")
+
+        sharedViewModel.setColdStorageIngredients(coldStorageIngredients)
+        sharedViewModel.setFreezeStorageIngredients(freezeStorageIngredients)
+        sharedViewModel.setRoomTemperatureStorageIngredients(roomTemperatureStorageIngredients)
     }
 
     private fun setFragment(fragment: Fragment, ingredients: List<Ingredient>) {
@@ -65,24 +78,28 @@ class MainFragment : Fragment() {
         when (ingredient.storageLocation) {
             "냉장고" -> {
                 sharedViewModel.addIngredientToColdStorage(ingredient)
-                if (childFragmentManager.findFragmentById(R.id.fragmentContainer) is ColdStorageFragment) {
+                val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
+                if (currentFragment is ColdStorageFragment) {
                     setFragment(ColdStorageFragment(), sharedViewModel.coldStorageIngredients.value ?: emptyList())
                 }
             }
             "냉동고" -> {
                 sharedViewModel.addIngredientToFreezeStorage(ingredient)
-                if (childFragmentManager.findFragmentById(R.id.fragmentContainer) is FreezeFragment) {
+                val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
+                if (currentFragment is FreezeFragment) {
                     setFragment(FreezeFragment(), sharedViewModel.freezeStorageIngredients.value ?: emptyList())
                 }
             }
             "실온" -> {
                 sharedViewModel.addIngredientToRoomTemperatureStorage(ingredient)
-                if (childFragmentManager.findFragmentById(R.id.fragmentContainer) is RoomTemperatureStorageFragment) {
+                val currentFragment = childFragmentManager.findFragmentById(R.id.fragmentContainer)
+                if (currentFragment is RoomTemperatureStorageFragment) {
                     setFragment(RoomTemperatureStorageFragment(), sharedViewModel.roomTemperatureStorageIngredients.value ?: emptyList())
                 }
             }
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

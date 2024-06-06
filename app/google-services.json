@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "592064678597",
+    "project_id": "mrf1-cd2da",
+    "storage_bucket": "mrf1-cd2da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592064678597:android:d6e7dee14c0b8de4b0feac",
+        "android_client_info": {
+          "package_name": "com.example.pmf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7r8GfNgKb7LJ1TAQXt0kTNxO3E3heNsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

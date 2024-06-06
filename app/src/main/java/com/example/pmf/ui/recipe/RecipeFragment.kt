@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.pmf.DB.DBHelper
 import com.example.pmf.databinding.FragmentRecipeBinding
+import com.example.pmf.ui.recipe.RecipeViewModel
+import com.example.pmf.ui.recipe.RecipeViewModelFactory
 
 class RecipeFragment : Fragment() {
 
     private var _binding: FragmentRecipeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,8 +23,9 @@ class RecipeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val recipeViewModel =
-            ViewModelProvider(this).get(RecipeViewModel::class.java)
+        val dbHelper = DBHelper(requireContext())
+        val recipeViewModelFactory = RecipeViewModelFactory(dbHelper)
+        val recipeViewModel = ViewModelProvider(this, recipeViewModelFactory).get(RecipeViewModel::class.java)
 
         _binding = FragmentRecipeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -32,6 +34,12 @@ class RecipeFragment : Fragment() {
         recipeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        val buttonRecommend: Button = binding.buttonRecommend
+        buttonRecommend.setOnClickListener {
+            recipeViewModel.recommendRecipe()
+        }
+
         return root
     }
 
