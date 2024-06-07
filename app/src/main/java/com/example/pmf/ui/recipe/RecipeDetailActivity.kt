@@ -27,4 +27,10 @@ class RecipeDetailActivity : AppCompatActivity() {
             onBackPressed()
         }
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        // 현재 액티비티를 종료하고, 부모 액티비티로 이동합니다.
+        finish()
+        return true
+    }
 }

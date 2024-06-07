@@ -49,7 +49,7 @@ class RecipeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         recipesAdapter = RecipesAdapter(emptyList())
-        binding.recyclerView.apply {
+        binding.searchResultRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = recipesAdapter
         }
