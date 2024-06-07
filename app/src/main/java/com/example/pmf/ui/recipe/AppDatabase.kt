@@ -1,4 +1,4 @@
-package com.example.pmf
+package com.example.pmf.ui.recipe
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

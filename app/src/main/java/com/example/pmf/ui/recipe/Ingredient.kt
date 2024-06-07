@@ -1,4 +1,4 @@
-package com.example.pmf
+package com.example.pmf.ui.recipe
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

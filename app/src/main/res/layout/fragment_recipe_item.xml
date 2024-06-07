@@ -4,7 +4,7 @@
     <data>
         <variable
             name="recipe"
-            type="com.example.pmf.Recipe" />
+            type="com.example.pmf.ui.recipe.Recipe" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

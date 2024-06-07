@@ -1,4 +1,4 @@
-package com.example.pmf
+package com.example.pmf.ui.recipe
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

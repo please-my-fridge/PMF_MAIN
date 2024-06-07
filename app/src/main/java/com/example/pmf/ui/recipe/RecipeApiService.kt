@@ -1,4 +1,4 @@
-package com.example.pmf
+package com.example.pmf.ui.recipe
 
 import retrofit2.Call
 import retrofit2.http.Body

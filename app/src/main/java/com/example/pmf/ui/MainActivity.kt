@@ -1,4 +1,4 @@
-package com.example.pmf
+package com.example.pmf.ui
 
 import android.Manifest
 import android.app.AlarmManager
@@ -9,7 +9,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,7 +19,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.pmf.DB.BasicIngredientsDBHelper
+import com.example.pmf.R
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

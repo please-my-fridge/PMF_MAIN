@@ -1,4 +1,4 @@
-package com.example.pmf
+package com.example.pmf.ui.recipe
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
